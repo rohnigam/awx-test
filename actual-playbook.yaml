@@ -1,0 +1,16 @@
+---
+- name: Actual playbook
+  hosts: all
+  # vars:
+  #   ansible_ssh_private_key_file: "~/Downloads/ssh-key-2021-11-24.key"
+  tasks:
+    - name: Ping works
+      ansible.builtin.ping:
+    - name: ensure file exists
+      copy:
+        content: ""
+        dest: ~/line.txt
+        force: no
+        mode: 0777
+    - name: Add timestamp at the end of file
+      ansible.builtin.shell: "echo {{ansible_date_time}} >> ~/line.txt"
