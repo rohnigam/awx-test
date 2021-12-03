@@ -1,0 +1,23 @@
+plugin: oracle.oci.oci
+
+hostname_format: public_ip
+
+regions:
+  - us-ashburn-1
+
+# ansible-testing
+compartments:
+  - compartment_ocid: ocid1.compartment.oc1..aaaaaaaau6pu4m7tinf3iofyb3peskra46lobx7wir3azht3lmgc33a5jhma
+    fetch_hosts_from_subcompartments: False
+
+# keyed_groups:
+#   - key: availability_domain
+
+groups:
+  dev: "'dev' == freeform_tags.group"
+  prod: "'prod' == freeform_tags.group"
+
+include_host_filters:
+  - "display_name is match('roh.*')"
+# filters:
+#   - display_name: mdb-test-management-agent-instance-635
