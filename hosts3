@@ -3,3 +3,6 @@
 
 [prod]
 132.145.135.0 ansible_port=5550
+
+[prod:vars]
+foo=bar
