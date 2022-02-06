@@ -1,0 +1,7 @@
+[web]
+host1
+host2
+
+[prod]
+host3 ansible_port=2222
+host4
